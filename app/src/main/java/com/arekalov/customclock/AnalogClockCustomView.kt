@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
+import kotlin.math.min
 
 class AnalogClockCustomView @JvmOverloads constructor(
     context: Context,
@@ -55,4 +56,28 @@ class AnalogClockCustomView @JvmOverloads constructor(
 //            isSecondHandVisible = attrsSet.getBoolean(R.styleable.MyClock_isSecondHandVisible, isSecondHandVisible)
 //        }
 //    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val width = when (MeasureSpec.getMode(widthMeasureSpec)) {
+            MeasureSpec.EXACTLY -> MeasureSpec.getSize(widthMeasureSpec)
+            MeasureSpec.AT_MOST -> DEFAULT_SIZE_DP
+            else -> DEFAULT_SIZE_DP
+        }
+        val height = when (MeasureSpec.getMode(heightMeasureSpec)) {
+            MeasureSpec.EXACTLY -> MeasureSpec.getSize(heightMeasureSpec)
+            MeasureSpec.AT_MOST -> DEFAULT_SIZE_DP
+            else -> DEFAULT_SIZE_DP
+        }
+        val size = min(height, width)
+        DEFAULT_SIZE_DP = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, size.toFloat(), resources.displayMetrics
+        ).toInt()
+        DEFAULT_BOARDER_PX = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, size * 0.02f, resources.displayMetrics
+        ).toInt()
+        radius = size / 2f - DEFAULT_BOARDER_PX
+        center = size / 2f
+        initPainters()
+        setMeasuredDimension(size, size)
+    }
 }
