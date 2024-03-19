@@ -39,13 +39,13 @@ class AnalogClockCustomView @JvmOverloads constructor(
     private var hourHandColor =  Color.BLACK
     private var isSecondHandVisible = true
     private var numbers = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
-    private var DEFAULT_SIZE_DP = TypedValue.applyDimension(
+    private var SIZE_DP = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, DEFAULT_SIZE, resources.displayMetrics
     ).toInt()
-    private var DEFAULT_BOARDER_PX = TypedValue.applyDimension(
+    private var BOARDER_PX = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, borderWidth, resources.displayMetrics
     ).toInt()
-    private var radius = width / 2F - DEFAULT_BOARDER_PX
+    private var radius = width / 2F - BOARDER_PX
     private var center = width / 2F
 //    init {
 //        if (attrs != null) {
@@ -69,55 +69,55 @@ private fun initPainters() {
     paintBorder = Paint().apply {
         color = borderColor
         style = Paint.Style.STROKE
-        strokeWidth = DEFAULT_BOARDER_PX.toFloat()
+        strokeWidth = BOARDER_PX.toFloat()
         isAntiAlias = true
     }
     paintDigit = Paint().apply {
-        color = hourHandColor
+        color = digitColor
         Paint.Style.FILL
         isAntiAlias = true
-        textSize = DEFAULT_SIZE_DP.toFloat() / 20F
+        textSize = SIZE_DP.toFloat() / 20F
     }
     paintHourHand = Paint().apply {
         color = hourHandColor
         Paint.Style.FILL
         isAntiAlias = true
-        strokeWidth = DEFAULT_SIZE_DP * 0.01F
+        strokeWidth = SIZE_DP * 0.01F
     }
 
     paintMinuteHand = Paint().apply {
         color = minuteHandColor
         Paint.Style.FILL
         isAntiAlias = true
-        strokeWidth = DEFAULT_SIZE_DP * 0.005F
+        strokeWidth = SIZE_DP * 0.005F
     }
     paintSecondHand = Paint().apply {
         color = secondHandColor
         Paint.Style.FILL
         isAntiAlias = true
-        strokeWidth = DEFAULT_SIZE_DP * 0.002F
+        strokeWidth = SIZE_DP * 0.002F
     }
 }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val width = when (MeasureSpec.getMode(widthMeasureSpec)) {
             MeasureSpec.EXACTLY -> MeasureSpec.getSize(widthMeasureSpec)
-            MeasureSpec.AT_MOST -> DEFAULT_SIZE_DP
-            else -> DEFAULT_SIZE_DP
+            MeasureSpec.AT_MOST -> SIZE_DP
+            else -> SIZE_DP
         }
         val height = when (MeasureSpec.getMode(heightMeasureSpec)) {
             MeasureSpec.EXACTLY -> MeasureSpec.getSize(heightMeasureSpec)
-            MeasureSpec.AT_MOST -> DEFAULT_SIZE_DP
-            else -> DEFAULT_SIZE_DP
+            MeasureSpec.AT_MOST -> SIZE_DP
+            else -> SIZE_DP
         }
         val size = min(height, width)
-        DEFAULT_SIZE_DP = TypedValue.applyDimension(
+        SIZE_DP = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, size.toFloat(), resources.displayMetrics
         ).toInt()
-        DEFAULT_BOARDER_PX = TypedValue.applyDimension(
+        BOARDER_PX = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, size * 0.02f, resources.displayMetrics
         ).toInt()
-        radius = size / 2f - DEFAULT_BOARDER_PX
+        radius = size / 2f - BOARDER_PX
         center = size / 2f
         initPainters()
         setMeasuredDimension(size, size)
@@ -180,7 +180,7 @@ private fun initPainters() {
     private fun drawDial(canvas: Canvas) {
         canvas.drawCircle(width / 2F, width / 2F, radius, paintBackground)
         canvas.drawCircle(width / 2f, width / 2f, radius, paintBorder)
-        canvas.drawCircle(width / 2f, width / 2f, DEFAULT_SIZE_DP * 0.008F, paintHourHand)
+        canvas.drawCircle(width / 2f, width / 2f, SIZE_DP * 0.008F, paintHourHand)
     }
 
     private fun drawDigits(canvas: Canvas) {

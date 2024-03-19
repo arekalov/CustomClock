@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
 
-    <com.arekalov.customclock.MyClock
+    <com.arekalov.customclock.AnalogClockCustomView
         android:layout_width="299dp"
         android:layout_height="312dp"
         android:layout_marginStart="12dp"
