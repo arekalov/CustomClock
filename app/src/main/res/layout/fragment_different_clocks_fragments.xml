@@ -25,7 +25,7 @@
             <com.arekalov.customclock.AnalogClockCustomView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:clockBorderWidth="30dp"/>
+                app:clockBorderWidth="25dp"/>
             <com.arekalov.customclock.AnalogClockCustomView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
