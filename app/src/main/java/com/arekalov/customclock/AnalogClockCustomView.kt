@@ -20,7 +20,7 @@ class AnalogClockCustomView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr, defResAttrs) {
 
     companion object {
-        const val DEFAULT_SIZE = 230f
+        const val DEFAULT_SIZE = 100f
         const val DEFAULT_BORDER = DEFAULT_SIZE * 0.108f
     }
 
@@ -150,7 +150,7 @@ class AnalogClockCustomView @JvmOverloads constructor(
             TypedValue.COMPLEX_UNIT_DIP, size * 0.02f, resources.displayMetrics
         ).toInt()
         DIGIT_SIZE_PX = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, size * 0.055f, resources.displayMetrics
+            TypedValue.COMPLEX_UNIT_DIP, size * 0.05f, resources.displayMetrics
         ).toInt()
         radius = size / 2f - BOARDER_PX
         center = size / 2f
