@@ -56,6 +56,44 @@ class AnalogClockCustomView @JvmOverloads constructor(
 //            isSecondHandVisible = attrsSet.getBoolean(R.styleable.MyClock_isSecondHandVisible, isSecondHandVisible)
 //        }
 //    }
+private fun initPainters() {
+    paintBackground = Paint().apply {
+        color = backgroundColor
+        Paint.Style.FILL
+        isAntiAlias = true
+    }
+    paintBorder = Paint().apply {
+        color = borderColor
+        style = Paint.Style.STROKE
+        strokeWidth = DEFAULT_BOARDER_PX.toFloat()
+        isAntiAlias = true
+    }
+    paintDigit = Paint().apply {
+        color = hourHandColor
+        Paint.Style.FILL
+        isAntiAlias = true
+        textSize = DEFAULT_SIZE_DP.toFloat() / 20F
+    }
+    paintHourHand = Paint().apply {
+        color = hourHandColor
+        Paint.Style.FILL
+        isAntiAlias = true
+        strokeWidth = DEFAULT_SIZE_DP * 0.01F
+    }
+
+    paintMinuteHand = Paint().apply {
+        color = minuteHandColor
+        Paint.Style.FILL
+        isAntiAlias = true
+        strokeWidth = DEFAULT_SIZE_DP * 0.005F
+    }
+    paintSecondHand = Paint().apply {
+        color = secondHandColor
+        Paint.Style.FILL
+        isAntiAlias = true
+        strokeWidth = DEFAULT_SIZE_DP * 0.002F
+    }
+}
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val width = when (MeasureSpec.getMode(widthMeasureSpec)) {
