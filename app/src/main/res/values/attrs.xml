@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomViewGroup">
+        <attr name="verticalOffset" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AvatarImageView">
+        <attr name="aiv_bordcolor" format="color" />
+        <attr name="aiv_borderwidth" format="dimension" />
+        <attr name="aiv_initials" format="string" />
+    </declare-styleable>
+
+<!--    <declare-styleable name="MyClock">-->
+<!--        <attr name="backgroundColor" format="color" />-->
+<!--        <attr name="borderColor" format="color" />-->
+<!--        <attr name="borderWidth" format="integer" />-->
+<!--        <attr name="digitsColor" format="color"/>-->
+<!--        <attr name="secondHandColor" format="color" />-->
+<!--        <attr name="minuteHandColor" format="color" />-->
+<!--        <attr name="hourHandColor" format="color" />-->
+<!--        <attr name="isSecondHandVisible" format="boolean"/>-->
+<!--    </declare-styleable>-->
+</resources>
