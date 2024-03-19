@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.icu.util.Calendar
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import kotlin.math.cos
@@ -20,7 +21,7 @@ class AnalogClockCustomView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr, defResAttrs) {
 
     companion object {
-        const val DEFAULT_SIZE = 100f
+        const val DEFAULT_SIZE = 250f
         const val DEFAULT_BORDER = DEFAULT_SIZE * 0.108f
     }
 
@@ -107,7 +108,6 @@ class AnalogClockCustomView @JvmOverloads constructor(
             color = digitColor
             Paint.Style.FILL
             isAntiAlias = true
-//            textSize = SIZE_DP.toFloat() / 20F
             textSize = DIGIT_SIZE_PX.toFloat()
         }
         paintHourHand = Paint().apply {
@@ -143,9 +143,6 @@ class AnalogClockCustomView @JvmOverloads constructor(
             else -> SIZE_DP
         }
         val size = min(height, width)
-        SIZE_DP = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, size.toFloat(), resources.displayMetrics
-        ).toInt()
         BOARDER_PX = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, size * 0.02f, resources.displayMetrics
         ).toInt()
