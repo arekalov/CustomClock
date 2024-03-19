@@ -41,6 +41,7 @@ class AnalogClockCustomView @JvmOverloads constructor(
     private var hourHandColor = Color.BLACK
     private var isSecondHandVisible = true
     private var numbers = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+
     private var SIZE_DP = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, DEFAULT_SIZE, resources.displayMetrics
     ).toInt()
@@ -64,10 +65,11 @@ class AnalogClockCustomView @JvmOverloads constructor(
                 attrsSet.getColor(R.styleable.AnalogClockCustomView_clockDigitsColor, digitColor)
             borderColor =
                 attrsSet.getColor(R.styleable.AnalogClockCustomView_clockBorderColor, borderColor)
+            digitSize = attrsSet.getDimension(R.styleable.AnalogClockCustomView_clockDigitsSize, digitSize)
             borderWidth =
-                attrsSet.getInteger(
+                attrsSet.getDimension(
                     R.styleable.AnalogClockCustomView_clockBorderWidth,
-                    borderWidth.toInt()
+                    borderWidth.toFloat()
                 )
                     .toFloat()
             secondHandColor =
@@ -101,14 +103,14 @@ class AnalogClockCustomView @JvmOverloads constructor(
         paintBorder = Paint().apply {
             color = borderColor
             style = Paint.Style.STROKE
-            strokeWidth = BOARDER_PX.toFloat()
+            strokeWidth = if (borderWidth == DEFAULT_BORDER) BOARDER_PX.toFloat() else borderWidth
             isAntiAlias = true
         }
         paintDigit = Paint().apply {
             color = digitColor
             Paint.Style.FILL
             isAntiAlias = true
-            textSize = DIGIT_SIZE_PX.toFloat()
+            textSize = if (digitSize == DEFAULT_SIZE * 0.2F) DIGIT_SIZE_PX.toFloat() else digitSize
         }
         paintHourHand = Paint().apply {
             color = hourHandColor
@@ -135,11 +137,13 @@ class AnalogClockCustomView @JvmOverloads constructor(
         val width = when (MeasureSpec.getMode(widthMeasureSpec)) {
             MeasureSpec.EXACTLY -> MeasureSpec.getSize(widthMeasureSpec)
             MeasureSpec.AT_MOST -> SIZE_DP
+            MeasureSpec.UNSPECIFIED -> MeasureSpec.getSize(widthMeasureSpec)
             else -> SIZE_DP
         }
         val height = when (MeasureSpec.getMode(heightMeasureSpec)) {
             MeasureSpec.EXACTLY -> MeasureSpec.getSize(heightMeasureSpec)
             MeasureSpec.AT_MOST -> SIZE_DP
+            MeasureSpec.UNSPECIFIED -> MeasureSpec.getSize(widthMeasureSpec)
             else -> SIZE_DP
         }
         val size = min(height, width)

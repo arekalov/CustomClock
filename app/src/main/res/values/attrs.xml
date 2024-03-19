@@ -13,7 +13,7 @@
     <declare-styleable name="AnalogClockCustomView">
         <attr name="clockBackgroundColor" format="color" />
         <attr name="clockBorderColor" format="color" />
-        <attr name="clockBorderWidth" format="integer" />
+        <attr name="clockBorderWidth" format="dimension" />
         <attr name="clockDigitsColor" format="color"/>
         <attr name="clockDigitsSize" format="dimension"/>
         <attr name="clockSecondHandColor" format="color" />
