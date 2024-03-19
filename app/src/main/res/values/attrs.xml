@@ -15,6 +15,7 @@
         <attr name="clockBorderColor" format="color" />
         <attr name="clockBorderWidth" format="integer" />
         <attr name="clockDigitsColor" format="color"/>
+        <attr name="clockDigitsSize" format="dimension"/>
         <attr name="clockSecondHandColor" format="color" />
         <attr name="clockMinuteHandColor" format="color" />
         <attr name="clockHourHandColor" format="color" />
