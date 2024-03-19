@@ -32,6 +32,7 @@ class AnalogClockCustomView @JvmOverloads constructor(
     private lateinit var paintBackground: Paint
     private var backgroundColor = 0xFFE8E4E1.toInt()
     private var digitColor = Color.BLACK
+    private var digitSize = DEFAULT_SIZE * 0.2F
     private var borderColor = Color.BLACK
     private var borderWidth = DEFAULT_BORDER
     private var secondHandColor = Color.BLACK
@@ -45,47 +46,50 @@ class AnalogClockCustomView @JvmOverloads constructor(
     private var BOARDER_PX = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, borderWidth, resources.displayMetrics
     ).toInt()
+    private var DIGIT_SIZE_PX = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP, digitSize, resources.displayMetrics
+    ).toInt()
     private var radius = width / 2F - BOARDER_PX
     private var center = width / 2F
 
-//    init {
-//        if (attrs != null) {
-//            val attrsSet = context.obtainStyledAttributes(attrs, R.styleable.AnalogClockCustomView)
-//            backgroundColor = attrsSet.getColor(
-//                R.styleable.AnalogClockCustomView_clockBackgroundColor,
-//                backgroundColor
-//            )
-//            digitColor =
-//                attrsSet.getColor(R.styleable.AnalogClockCustomView_clockDigitsColor, digitColor)
-//            borderColor =
-//                attrsSet.getColor(R.styleable.AnalogClockCustomView_clockBorderColor, borderColor)
-//            borderWidth =
-//                attrsSet.getInteger(
-//                    R.styleable.AnalogClockCustomView_clockBorderWidth,
-//                    borderWidth.toInt()
-//                )
-//                    .toFloat()
-//            secondHandColor =
-//                attrsSet.getColor(
-//                    R.styleable.AnalogClockCustomView_clockSecondHandColor,
-//                    secondHandColor
-//                )
-//            minuteHandColor =
-//                attrsSet.getColor(
-//                    R.styleable.AnalogClockCustomView_clockMinuteHandColor,
-//                    minuteHandColor
-//                )
-//            hourHandColor = attrsSet.getColor(
-//                R.styleable.AnalogClockCustomView_clockHourHandColor,
-//                hourHandColor
-//            )
-//            isSecondHandVisible =
-//                attrsSet.getBoolean(
-//                    R.styleable.AnalogClockCustomView_clockIsSecondHandVisible,
-//                    isSecondHandVisible
-//                )
-//        }
-//    }
+    init {
+        if (attrs != null) {
+            val attrsSet = context.obtainStyledAttributes(attrs, R.styleable.AnalogClockCustomView)
+            backgroundColor = attrsSet.getColor(
+                R.styleable.AnalogClockCustomView_clockBackgroundColor,
+                backgroundColor
+            )
+            digitColor =
+                attrsSet.getColor(R.styleable.AnalogClockCustomView_clockDigitsColor, digitColor)
+            borderColor =
+                attrsSet.getColor(R.styleable.AnalogClockCustomView_clockBorderColor, borderColor)
+            borderWidth =
+                attrsSet.getInteger(
+                    R.styleable.AnalogClockCustomView_clockBorderWidth,
+                    borderWidth.toInt()
+                )
+                    .toFloat()
+            secondHandColor =
+                attrsSet.getColor(
+                    R.styleable.AnalogClockCustomView_clockSecondHandColor,
+                    secondHandColor
+                )
+            minuteHandColor =
+                attrsSet.getColor(
+                    R.styleable.AnalogClockCustomView_clockMinuteHandColor,
+                    minuteHandColor
+                )
+            hourHandColor = attrsSet.getColor(
+                R.styleable.AnalogClockCustomView_clockHourHandColor,
+                hourHandColor
+            )
+            isSecondHandVisible =
+                attrsSet.getBoolean(
+                    R.styleable.AnalogClockCustomView_clockIsSecondHandVisible,
+                    isSecondHandVisible
+                )
+        }
+    }
 
     private fun initPainters() {
         paintBackground = Paint().apply {
@@ -103,7 +107,8 @@ class AnalogClockCustomView @JvmOverloads constructor(
             color = digitColor
             Paint.Style.FILL
             isAntiAlias = true
-            textSize = SIZE_DP.toFloat() / 20F
+//            textSize = SIZE_DP.toFloat() / 20F
+            textSize = DIGIT_SIZE_PX.toFloat()
         }
         paintHourHand = Paint().apply {
             color = hourHandColor
@@ -143,6 +148,9 @@ class AnalogClockCustomView @JvmOverloads constructor(
         ).toInt()
         BOARDER_PX = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, size * 0.02f, resources.displayMetrics
+        ).toInt()
+        DIGIT_SIZE_PX = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, size * 0.055f, resources.displayMetrics
         ).toInt()
         radius = size / 2f - BOARDER_PX
         center = size / 2f
