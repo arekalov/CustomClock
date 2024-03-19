@@ -7,7 +7,17 @@
 
     <fragment
         android:id="@+id/defaultClockFragment"
-        android:name="com.arekalov.customclock.DefaultClockFragment"
+        android:name="com.arekalov.customclock.fragments.DefaultClockFragment"
         android:label="fragment_default_clock"
         tools:layout="@layout/fragment_default_clock" />
+    <fragment
+        android:id="@+id/sizesFragment"
+        android:name="com.arekalov.customclock.fragments.SizesClockFragment"
+        android:label="fragment_sizes"
+        tools:layout="@layout/fragment_sizes" />
+    <fragment
+        android:id="@+id/differentClocksFragments"
+        android:name="com.arekalov.customclock.fragments.DifferentClocksFragments"
+        android:label="fragment_different_clocks_fragments"
+        tools:layout="@layout/fragment_different_clocks_fragments" />
 </navigation>
