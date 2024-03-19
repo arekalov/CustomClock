@@ -10,7 +10,7 @@
         <attr name="aiv_initials" format="string" />
     </declare-styleable>
 
-    <declare-styleable name="MyClock">
+    <declare-styleable name="AnalogClockCustomView">
         <attr name="clockBackgroundColor" format="color" />
         <attr name="clockBorderColor" format="color" />
         <attr name="clockBorderWidth" format="integer" />
