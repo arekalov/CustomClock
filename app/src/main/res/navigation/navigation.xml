@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/defaultClockFragment">
+
+    <fragment
+        android:id="@+id/defaultClockFragment"
+        android:name="com.arekalov.customclock.fragments.DefaultClockFragment"
+        android:label="fragment_default_clock"
+        tools:layout="@layout/fragment_default_clock" />
+    <fragment
+        android:id="@+id/sizesFragment"
+        android:name="com.arekalov.customclock.fragments.SizesClockFragment"
+        android:label="fragment_sizes"
+        tools:layout="@layout/fragment_sizes" />
+    <fragment
+        android:id="@+id/differentClocksFragments"
+        android:name="com.arekalov.customclock.fragments.DifferentClocksFragments"
+        android:label="fragment_different_clocks_fragments"
+        tools:layout="@layout/fragment_different_clocks_fragments" />
+</navigation>

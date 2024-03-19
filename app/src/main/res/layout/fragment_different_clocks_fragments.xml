@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.DifferentClocksFragments">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockIsSecondHandVisible="false"/>
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockBorderColor="@color/violet" />
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockBorderWidth="25dp"/>
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockBackgroundColor="@color/red"/>
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockDigitsColor="@color/green"/>
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockDigitsSize="20dp"/>
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockSecondHandColor="@color/red"/>
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockMinuteHandColor="@color/violet"/>
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:clockHourHandColor="@color/orange"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

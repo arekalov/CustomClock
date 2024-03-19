@@ -5,25 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
+        app:navGraph="@navigation/navigation" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/bottom_nav_view"
+        app:menu="@menu/menu"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <com.arekalov.customclock.MyClock
-        android:layout_width="299dp"
-        android:layout_height="312dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.arekalov.customclock.AnalogClockView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="97dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

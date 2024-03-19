@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.DifferentClocksFragments">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="80dp"
+                android:layout_height="136dp" />
+
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="174dp"
+                android:layout_height="152dp" />
+
+            <com.arekalov.customclock.AnalogClockCustomView
+                android:layout_width="455dp"
+                android:layout_height="412dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.arekalov.customclock.AnalogClockCustomView
+                    android:layout_width="47dp"
+                    android:layout_height="62dp" />
+                <com.arekalov.customclock.AnalogClockCustomView
+                    android:layout_width="47dp"
+                    android:layout_height="62dp" />
+                <com.arekalov.customclock.AnalogClockCustomView
+                    android:layout_width="47dp"
+                    android:layout_height="62dp" />
+                <com.arekalov.customclock.AnalogClockCustomView
+                    android:layout_width="47dp"
+                    android:layout_height="62dp" />
+                <com.arekalov.customclock.AnalogClockCustomView
+                    android:layout_width="47dp"
+                    android:layout_height="62dp" />
+                <com.arekalov.customclock.AnalogClockCustomView
+                    android:layout_width="47dp"
+                    android:layout_height="62dp" />
+                <com.arekalov.customclock.AnalogClockCustomView
+                    android:layout_width="47dp"
+                    android:layout_height="62dp" />
+                <com.arekalov.customclock.AnalogClockCustomView
+                    android:layout_width="47dp"
+                    android:layout_height="62dp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>
